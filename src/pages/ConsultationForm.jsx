@@ -1,8 +1,10 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
 const ConsultationForm = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+    <Layout>
+      <div className="max-w-2xl mx-auto">
       <form className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
         <h2 className="text-2xl font-bold text-blue-700 mb-6">Consultation Form</h2>
         <div className="mb-4">
@@ -19,7 +21,8 @@ const ConsultationForm = () => {
         </div>
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Submit</button>
       </form>
-    </div>
+      </div>
+    </Layout>
   )
 }
 

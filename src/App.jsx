@@ -10,6 +10,7 @@ import RDVList from './pages/RDVList'
 import RDVForm from './pages/RDVForm'
 import ConsultationsList from './pages/ConsultationsList'
 import ConsultationForm from './pages/ConsultationForm'
+import PlanningPage from './pages/PlanningPage'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/consultations" element={<ConsultationsList />} />
         <Route path="/consultation/new" element={<ConsultationForm />} />
         <Route path="/consultation/edit/:id" element={<ConsultationForm />} />
+        <Route path="/planning" element={<PlanningPage />} />
       </Routes>
     </BrowserRouter>
   )

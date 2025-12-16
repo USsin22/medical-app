@@ -1,23 +1,15 @@
 import React from "react";
+import Layout from '../components/Layout'
 
-const patient = {
-  name: "John Doe",
-  age: 34,
-  gender: "Male",
-  consultations: [
-    { date: "2024-06-01", doctor: "Dr. Smith", notes: "Routine checkup" },
-  ],
-  appointments: [
-    { date: "2024-06-10", time: "10:00", type: "Follow-up" },
-  ],
-};
+
 
 const PatientDetails = () => (
-  <div className="p-8 bg-gray-50 min-h-screen">
+  <Layout>
+    <div>
     <div className="bg-white rounded shadow p-6 mb-6">
-      <h1 className="text-2xl font-bold text-blue-700 mb-2">{patient.name}</h1>
-      <div className="text-gray-700 mb-2">Age: {patient.age}</div>
-      <div className="text-gray-700 mb-2">Gender: {patient.gender}</div>
+      <h1 className="text-2xl font-bold text-blue-700 mb-2">Patient Details</h1>
+      <div className="text-gray-700 mb-2">Age: </div>
+      <div className="text-gray-700 mb-2">Gender: </div>
     </div>
     <div className="bg-white rounded shadow p-6 mb-6">
       <h2 className="text-xl font-bold text-blue-600 mb-4">Consultation History</h2>
@@ -39,7 +31,8 @@ const PatientDetails = () => (
         ))}
       </ul>
     </div>
-  </div>
+    </div>
+  </Layout>
 );
 
 export default PatientDetails;

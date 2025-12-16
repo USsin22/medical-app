@@ -1,7 +1,9 @@
 import React from "react";
+import Layout from '../components/Layout'
 
 const PatientForm = () => (
-  <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+  <Layout>
+    <div className="max-w-2xl mx-auto">
     <form className="bg-white p-8 rounded shadow w-full max-w-lg">
       <h1 className="text-2xl font-bold text-blue-700 mb-6">Add/Edit Patient</h1>
       <div className="mb-4">
@@ -21,7 +23,8 @@ const PatientForm = () => (
       </div>
       <button className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Save</button>
     </form>
-  </div>
+    </div>
+  </Layout>
 );
 
 export default PatientForm;

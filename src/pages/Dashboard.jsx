@@ -1,41 +1,59 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchPatients } from '../store/patientSlice'
+import { fetchRendezvous } from '../store/rdvSlice'
+import { fetchConsultations } from '../store/consultationsSlice'
+import Layout from '../components/Layout'
 
-const metrics = [
-  { label: "Total Patients", value: 120 },
-  { label: "Upcoming Appointments", value: 15 },
-  { label: "Consultations Today", value: 7 },
-];
+const Dashboard = () => {
+  const dispatch = useDispatch()
+  const { patients } = useSelector(state => state.patient)
+  const { appointments } = useSelector(state => state.rdv)
+  const { consultations } = useSelector(state => state.consultation)
 
-const navLinks = [
-  { name: "Patients", href: "/patients" },
-  { name: "Appointments", href: "/rdv" },
-  { name: "Consultations", href: "/consultations" },
-  { name: "Planning", href: "/planning" },
-];
+  useEffect(() => {
+    dispatch(fetchPatients())
+    dispatch(fetchRendezvous())
+    dispatch(fetchConsultations())
+  }, [dispatch])
 
-const Dashboard = () => (
-  <div className="min-h-screen flex bg-gray-50">
-    <aside className="w-64 bg-white shadow flex flex-col p-6">
-      <h2 className="text-2xl font-bold text-blue-600 mb-8">MedClinic</h2>
-      <nav className="flex-1">
-        {navLinks.map(link => (
-          <a key={link.name} href={link.href} className="block py-2 px-4 rounded hover:bg-blue-100 text-gray-700 mb-2">{link.name}</a>
-        ))}
-      </nav>
-    </aside>
-    <main className="flex-1 p-8">
-      <h1 className="text-3xl font-bold text-blue-700 mb-6">Dashboard</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {metrics.map(m => (
-          <div key={m.label} className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-2xl font-bold text-blue-600">{m.value}</div>
-            <div className="text-gray-700">{m.label}</div>
-          </div>
-        ))}
+  const today = new Date().toISOString().split('T')[0]
+  const todayAppointments = appointments.filter(apt => apt.date === today)
+  const todayConsultations = consultations.filter(cons => cons.date === today)
+
+  const metrics = [
+    { label: "Total Patients", value: patients.length, icon: "👥", color: "bg-blue-500" },
+    { label: "Upcoming Appointments", value: appointments.length, icon: "📅", color: "bg-green-500" },
+    { label: "Consultations Today", value: todayConsultations.length, icon: "🏥", color: "bg-purple-500" },
+    { label: "Appointments Today", value: todayAppointments.length, icon: "⏰", color: "bg-orange-500" },
+  ];
+
+  return (
+    <Layout showBackButton={false}>
+      <div className="space-y-6">
+        <h1 className="text-3xl font-bold text-blue-900">Dashboard</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map(m => (
+            <div key={m.label} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-3xl font-bold text-gray-800">{m.value}</div>
+                  <div className="text-gray-600 mt-1">{m.label}</div>
+                </div>
+                <div className={`${m.color} w-12 h-12 rounded-full flex items-center justify-center text-2xl`}>
+                  {m.icon}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h2 className="text-xl font-bold text-blue-900 mb-4">Welcome to MedClinic</h2>
+          <p className="text-gray-700">Your comprehensive medical practice management system. Use the sidebar to navigate to different sections and manage your patients, appointments, consultations, and planning.</p>
+        </div>
       </div>
-      <div className="bg-white rounded-lg shadow p-6">Welcome to your medical dashboard. Select a section from the sidebar to get started.</div>
-    </main>
-  </div>
-);
+    </Layout>
+  );
+};
 
 export default Dashboard;

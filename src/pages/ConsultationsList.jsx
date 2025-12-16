@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addConsultation, deleteConsultation, fetchConsultations, updateConsultation } from '../store/consultationsSlice'
 import Modal from '../components/Modal'
 import Toast from '../components/Toast'
+import Layout from '../components/Layout'
 
 const emptyConsult = { patientId: '', date: '', diagnostic: '', traitement: '', tarif: '', paiement: '' }
 
@@ -50,7 +51,8 @@ const ConsultationsList = () => {
   }
 
   return (
-    <div className="p-6 md:p-8 bg-gray-50 min-h-screen">
+    <Layout>
+      <div>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
         <h1 className="text-2xl font-bold text-blue-700">Consultations</h1>
         <div className="flex gap-3 w-full md:w-auto">
@@ -110,7 +112,8 @@ const ConsultationsList = () => {
       </Modal>
 
       <Toast message={toast.message} type={toast.type} onClose={() => setToast({ message: '', type: 'info' })} />
-    </div>
+      </div>
+    </Layout>
   )
 }
 
