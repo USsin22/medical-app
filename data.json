@@ -72,6 +72,26 @@
       "ordonnance": "Paracetamol 500mg – 3 fois/jour",
       "tarif": 150,
       "mode_paiement": "Espèces"
+    },
+    {
+      "id": "53d6",
+      "patientId": "",
+      "date": "",
+      "diagnostic": "",
+      "traitement": "",
+      "tarif": 0,
+      "paiement": "",
+      "mode_paiement": ""
+    },
+    {
+      "id": "e5cc",
+      "patientId": "00df",
+      "date": "",
+      "diagnostic": "ds",
+      "traitement": "234",
+      "tarif": 123,
+      "paiement": "Espèces",
+      "mode_paiement": "Espèces"
     }
   ],
   "groupes_sanguins": [

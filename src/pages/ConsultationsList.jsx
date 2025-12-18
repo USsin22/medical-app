@@ -1,15 +1,20 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addConsultation, deleteConsultation, fetchConsultations, updateConsultation } from '../store/consultationsSlice'
+import { fetchPatients } from '../store/patientSlice'
+import { fetchMotifsRdv, fetchModesPaiement } from '../store/optionsSlice'
 import Modal from '../components/Modal'
 import Toast from '../components/Toast'
 import Layout from '../components/Layout'
+import SearchableSelect from '../components/SearchableSelect'
 
 const emptyConsult = { patientId: '', date: '', diagnostic: '', traitement: '', tarif: '', paiement: '' }
 
 const ConsultationsList = () => {
   const dispatch = useDispatch()
   const { consultations, status, error } = useSelector(state => state.consultation)
+  const { patients } = useSelector(state => state.patient)
+  const { motifsRdv, modesPaiement, status: optionsStatus, error: optionsError } = useSelector(state => state.options)
 
   const [query, setQuery] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -19,6 +24,9 @@ const ConsultationsList = () => {
 
   useEffect(() => {
     if (status === 'idle') dispatch(fetchConsultations())
+    if (patients.length === 0) dispatch(fetchPatients())
+    if (motifsRdv.length === 0) dispatch(fetchMotifsRdv())
+    if (modesPaiement.length === 0) dispatch(fetchModesPaiement())
   }, [status, dispatch])
 
   const filtered = useMemo(() => {
@@ -28,15 +36,18 @@ const ConsultationsList = () => {
   }, [consultations, query])
 
   const openAdd = () => { setEditing(null); setForm(emptyConsult); setIsModalOpen(true) }
-  const openEdit = (c) => { setEditing(c); setForm({ patientId: c.patientId || '', date: c.date || '', diagnostic: c.diagnostic || '', traitement: c.traitement || '', tarif: c.tarif ?? '', paiement: c.paiement || '' }); setIsModalOpen(true) }
+  const openEdit = (c) => { setEditing(c); setForm({ patientId: c.patientId || c.patient_id || '', date: c.date || '', diagnostic: c.diagnostic || '', traitement: c.traitement || '', tarif: c.tarif ?? '', paiement: c.mode_paiement || c.paiement || '', motif: c.motif || '' }); setIsModalOpen(true) }
 
   const onConfirm = async () => {
     try {
+      const payload = { ...form, tarif: Number(form.tarif) || 0 }
+      payload.paiement = form.paiement
+      payload.mode_paiement = form.paiement
       if (editing) {
-        await dispatch(updateConsultation({ id: editing.id, ...form })).unwrap()
+        await dispatch(updateConsultation({ id: editing.id, ...payload })).unwrap()
         setToast({ message: 'Consultation mise à jour', type: 'success' })
       } else {
-        await dispatch(addConsultation({ ...form, tarif: Number(form.tarif) || 0 })).unwrap()
+        await dispatch(addConsultation(payload)).unwrap()
         setToast({ message: 'Consultation ajoutée', type: 'success' })
       }
       setIsModalOpen(false)
@@ -77,7 +88,7 @@ const ConsultationsList = () => {
                 <button className="px-3 py-1 text-sm bg-red-50 text-red-700 rounded hover:bg-red-100" onClick={() => onDelete(c.id)}>Delete</button>
               </div>
             </div>
-            <div className="mt-3 text-sm text-gray-600">Tarif: {c.tarif ?? 0} · Paiement: {c.paiement || '—'}</div>
+            <div className="mt-3 text-sm text-gray-600">Tarif: {c.tarif ?? 0} · Paiement: {c.mode_paiement || c.paiement || '—'}</div>
           </div>
         ))}
       </div>
@@ -85,8 +96,15 @@ const ConsultationsList = () => {
       <Modal isOpen={isModalOpen} title={editing ? 'Edit Consultation' : 'Add Consultation'} onClose={() => setIsModalOpen(false)} onConfirm={onConfirm}>
         <form className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label className="flex flex-col text-sm">
-            <span className="text-gray-700">Patient ID</span>
-            <input className="mt-1 px-3 py-2 border rounded" value={form.patientId} onChange={e => setForm({ ...form, patientId: e.target.value })} />
+            <span className="text-gray-700">Patient</span>
+            <SearchableSelect
+              options={patients.map(p => ({ value: p.id, label: `${p.nom} ${p.prenom} - ${p.email || p.telephone || ''}`.trim() }))}
+              value={form.patientId}
+              onChange={(val) => setForm({ ...form, patientId: val })}
+              placeholder="Choose a patient..."
+              searchPlaceholder="Search patients..."
+              ariaLabel="Select patient"
+            />
           </label>
           <label className="flex flex-col text-sm">
             <span className="text-gray-700">Date</span>
@@ -101,12 +119,30 @@ const ConsultationsList = () => {
             <input className="mt-1 px-3 py-2 border rounded" value={form.traitement} onChange={e => setForm({ ...form, traitement: e.target.value })} />
           </label>
           <label className="flex flex-col text-sm">
+            <span className="text-gray-700">Motif</span>
+            <select className="mt-1 px-3 py-2 border rounded" value={form.motif} onChange={e => setForm({ ...form, motif: e.target.value })}>
+              <option value="">Choose a motif...</option>
+              {motifsRdv.map(m => (
+                <option key={m.id} value={m.label}>{m.label}</option>
+              ))}
+            </select>
+            {optionsStatus === 'loading' && <div className="text-xs text-gray-500 mt-1">Loading motifs…</div>}
+            {optionsError && <div className="text-xs text-red-600 mt-1">{optionsError}</div>}
+          </label>
+          <label className="flex flex-col text-sm">
             <span className="text-gray-700">Tarif</span>
             <input type="number" className="mt-1 px-3 py-2 border rounded" value={form.tarif} onChange={e => setForm({ ...form, tarif: e.target.value })} />
           </label>
           <label className="flex flex-col text-sm">
-            <span className="text-gray-700">Paiement</span>
-            <input className="mt-1 px-3 py-2 border rounded" value={form.paiement} onChange={e => setForm({ ...form, paiement: e.target.value })} />
+            <span className="text-gray-700">Mode de paiement</span>
+            <select className="mt-1 px-3 py-2 border rounded" value={form.paiement} onChange={e => setForm({ ...form, paiement: e.target.value })}>
+              <option value="">Choose a mode…</option>
+              {modesPaiement.map(mp => (
+                <option key={mp.id} value={mp.label}>{mp.label}</option>
+              ))}
+            </select>
+            {optionsStatus === 'loading' && <div className="text-xs text-gray-500 mt-1">Loading payment modes…</div>}
+            {optionsError && <div className="text-xs text-red-600 mt-1">{optionsError}</div>}
           </label>
         </form>
       </Modal>
