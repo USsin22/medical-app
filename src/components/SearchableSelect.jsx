@@ -1,54 +1,77 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
-
-const SearchableSelect = ({ options = [], value, onChange, placeholder = 'Select...', searchPlaceholder = 'Search...', disabled = false, ariaLabel }) => {
+const SearchableSelect = ({ patients = [], value, onChange, placeholder = "Search patient...", className = "" }) => {
+  const [search, setSearch] = useState("")
   const [open, setOpen] = useState(false)
-  const [query, setQuery] = useState('')
-  const [highlight, setHighlight] = useState(0)
-  const inputRef = useRef(null)
-  const listRef = useRef(null)
+  const containerRef = useRef(null)
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    if (!q) return options
-    return options.filter(o => o.label.toLowerCase().includes(q))
-  }, [options, query])
+  const selectedPatient = patients.find(p => p.id === value)
 
-  useEffect(() => { if (open) setTimeout(() => inputRef.current?.focus(), 0) }, [open])
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpen(false)
+      }
+    }
 
-  useEffect(() => { setHighlight(0) }, [filtered.length])
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
-  const selectedLabel = useMemo(() => options.find(o => String(o.value) === String(value))?.label || '', [options, value])
+  const filteredPatients = patients.filter(p =>
+    `${p.nom || ''} ${p.prenom || ''}`.toLowerCase().includes(search.toLowerCase()) ||
+    p.telephone?.toLowerCase().includes(search.toLowerCase())
+  )
 
-  const handleKey = (e) => {
-    if (!open) return
-    if (e.key === 'ArrowDown') { e.preventDefault(); setHighlight(h => Math.min(h + 1, filtered.length - 1)) }
-    else if (e.key === 'ArrowUp') { e.preventDefault(); setHighlight(h => Math.max(h - 1, 0)) }
-    else if (e.key === 'Enter') { e.preventDefault(); const choice = filtered[highlight]; if (choice) { onChange?.(choice.value); setOpen(false) } }
-    else if (e.key === 'Escape') { setOpen(false) }
+  const handleSelect = (patient) => {
+    onChange(patient.id)
+    setOpen(false)
+    setSearch("")
   }
 
   return (
-    <div className="relative" aria-expanded={open} aria-haspopup="listbox">
-      <button type="button" className={`w-full px-4 py-2 border rounded-lg text-left ${disabled ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-white'}`} onClick={() => !disabled && setOpen(o => !o)} aria-label={ariaLabel}>
-        {selectedLabel || placeholder}
-      </button>
+    <div className={`relative ${className}`} ref={containerRef}>
+      <input
+        type="text"
+        value={selectedPatient ? `${selectedPatient.nom} ${selectedPatient.prenom}` : search}
+        onChange={(e) => {
+          setSearch(e.target.value)
+          if (!e.target.value) onChange('')
+          setOpen(true)
+        }}
+        onFocus={() => setOpen(true)}
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        placeholder={placeholder}
+      />
+      
+      {selectedPatient && (
+        <button
+          type="button"
+          onClick={() => {
+            onChange('')
+            setSearch("")
+          }}
+          className="absolute right-2 top-2 text-gray-400 hover:text-gray-600"
+        >
+          ✕
+        </button>
+      )}
+
       {open && (
-        <div className="absolute z-20 mt-2 w-full bg-white border rounded-lg shadow-lg" role="listbox" aria-activedescendant={`opt-${highlight}`}>
-          <div className="p-2">
-            <input ref={inputRef} value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={handleKey} placeholder={searchPlaceholder} className="w-full px-3 py-2 border rounded" aria-label="Search options" />
-          </div>
-          <ul ref={listRef} className="max-h-48 overflow-auto">
-            {filtered.length === 0 && <li className="px-3 py-2 text-gray-500">No results</li>}
-            {filtered.map((o, idx) => (
-              <li id={`opt-${idx}`} key={o.value} role="option" aria-selected={String(o.value) === String(value)} className={`px-3 py-2 cursor-pointer ${idx === highlight ? 'bg-blue-50' : ''}`} onMouseEnter={() => setHighlight(idx)} onClick={() => { onChange?.(o.value); setOpen(false) }}>
-                {o.label}
+        <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-60 overflow-y-auto shadow-lg">
+          {filteredPatients.length > 0 ? (
+            filteredPatients.map(patient => (
+              <li
+                key={patient.id}
+                onClick={() => handleSelect(patient)}
+                className="px-3 py-2 cursor-pointer hover:bg-blue-50 hover:text-blue-700"
+              >
+                {patient.nom} {patient.prenom} {patient.telephone && `- ${patient.telephone}`}
               </li>
-            ))}
-          </ul>
-        </div>
+            ))
+          ) : (
+            <li className="px-3 py-2 text-gray-500 italic">No patients found</li>
+          )}
+        </ul>
       )}
     </div>
   )
 }
-
-export default SearchableSelect

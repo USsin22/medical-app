@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { rdvSlice} from './rdvSlice.js'
+
 import { medecinSlice } from './medecinSlice.js'
 import { patientSlice } from './patientSlice.js'
-import { consultationSlice } from './consultationsSlice.js'
-import { optionsSlice } from './optionsSlice.js'
+import {optionsSlice} from './optionsSlice.js'
+import {consultationSlice} from './consultationsSlice.js'
 
 export const store = configureStore({
   reducer: {

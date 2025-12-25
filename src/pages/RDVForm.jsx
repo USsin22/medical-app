@@ -3,9 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 import { addRendezvous, updateRendezvous, fetchRendezvous } from '../store/rdvSlice'
 import { fetchPatients } from '../store/patientSlice'
-import { fetchMotifsRdv, fetchStatutsRdv } from '../store/optionsSlice'
-import SearchableSelect from '../components/SearchableSelect'
-import { hasConflict } from '../utils/checkConflicts'
 import Layout from '../components/Layout'
 import Toast from '../components/Toast'
 
@@ -17,7 +14,6 @@ const RDVForm = () => {
 
   const { appointments } = useSelector(state => state.rdv)
   const { patients } = useSelector(state => state.patient)
-  const { motifsRdv, statutsRdv, status: optionsStatus, error: optionsError } = useSelector(state => state.options)
 
   const [form, setForm] = useState({
     patientId: '',
@@ -32,11 +28,8 @@ const RDVForm = () => {
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('')
 
   useEffect(() => {
-    // optimize API calls: fetch only when idle/empty
-    if (patients.length === 0) dispatch(fetchPatients())
-    if (appointments.length === 0) dispatch(fetchRendezvous())
-    if (motifsRdv.length === 0) dispatch(fetchMotifsRdv())
-    if (statutsRdv.length === 0) dispatch(fetchStatutsRdv())
+    dispatch(fetchPatients())
+    dispatch(fetchRendezvous())
   }, [dispatch])
 
   useEffect(() => {
@@ -69,8 +62,15 @@ const RDVForm = () => {
   }, [])
 
   // Get booked time slots for selected date
+  const bookedSlots = useMemo(() => {
+    if (!form.date) return []
+    return appointments
+      .filter(apt => apt.date === form.date && apt.id !== parseInt(id || '0'))
+      .map(apt => apt.heure)
+  }, [appointments, form.date, id])
+
   const isSlotAvailable = (time) => {
-    return !hasConflict(appointments, form.date, time, id ? parseInt(id) : undefined)
+    return !bookedSlots.includes(time)
   }
 
   const handleTimeSlotClick = (time) => {
@@ -107,12 +107,7 @@ const RDVForm = () => {
     }
   }
 
-  const patientOptions = useMemo(() => patients.map(p => ({
-    value: p.id,
-    label: `${p.nom} ${p.prenom} - ${p.email || p.telephone || ''}`.trim()
-  })), [patients])
-
-  const selectedPatient = useMemo(() => patients.find(p => String(p.id) === String(form.patientId)), [patients, form.patientId])
+  const selectedPatient = patients.find(p => p.id === form.patientId)
 
   return (
     <Layout>
@@ -128,17 +123,19 @@ const RDVForm = () => {
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Select Patient <span className="text-red-500">*</span>
               </label>
-              <SearchableSelect
-                options={patientOptions}
+              <select
                 value={form.patientId}
-                onChange={(val) => setForm({ ...form, patientId: val })}
-                placeholder="Choose a patient..."
-                searchPlaceholder="Search patients..."
-                ariaLabel="Select patient"
-              />
-              {patients.length === 0 && (
-                <div className="mt-2 text-xs text-gray-500">Loading patients…</div>
-              )}
+                onChange={(e) => setForm({ ...form, patientId: e.target.value })}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+              >
+                <option value="">Choose a patient...</option>
+                {patients.map(patient => (
+                  <option key={patient.id} value={patient.id}>
+                    {patient.nom} {patient.prenom} - {patient.email || patient.telephone}
+                  </option>
+                ))}
+              </select>
               {selectedPatient && (
                 <div className="mt-2 p-3 bg-blue-50 rounded-lg">
                   <div className="text-sm text-gray-700">
@@ -217,35 +214,34 @@ const RDVForm = () => {
               )}
             </div>
 
+            {/* Motif */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Reason for Visit</label>
-              <select
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Reason for Visit
+              </label>
+              <input
+                type="text"
                 value={form.motif}
                 onChange={(e) => setForm({ ...form, motif: e.target.value })}
+                placeholder="e.g., General checkup, Consultation..."
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              >
-                <option value="">Choose a motif...</option>
-                {motifsRdv.map(m => (
-                  <option key={m.id} value={m.label}>{m.label}</option>
-                ))}
-              </select>
-              {optionsStatus === 'loading' && <div className="text-xs text-gray-500 mt-1">Loading motifs…</div>}
-              {optionsError && <div className="text-xs text-red-600 mt-1">{optionsError}</div>}
+              />
             </div>
 
+            {/* Status */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Status</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Status
+              </label>
               <select
                 value={form.etat}
                 onChange={(e) => setForm({ ...form, etat: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                {statutsRdv.map(s => (
-                  <option key={s.id} value={s.label}>{s.label}</option>
-                ))}
+                <option value="En attente">En attente</option>
+                <option value="Confirmé">Confirmé</option>
+                <option value="Annulé">Annulé</option>
               </select>
-              {optionsStatus === 'loading' && <div className="text-xs text-gray-500 mt-1">Loading status…</div>}
-              {optionsError && <div className="text-xs text-red-600 mt-1">{optionsError}</div>}
             </div>
 
             {/* Notes */}

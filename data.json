@@ -1,7 +1,7 @@
 {
   "patients": [
     {
-      "id": 1,
+      "id": "1",
       "nom": "Amrani",
       "prenom": "Samir",
       "date_naissance": "1990-05-12",
@@ -12,7 +12,7 @@
       "allergies": "Pollen"
     },
     {
-      "id": 2,
+      "id": "2",
       "nom": "El Fassi",
       "prenom": "Khadija",
       "date_naissance": "1985-09-22",
@@ -32,19 +32,31 @@
       "groupe_sanguin": "jh",
       "allergies": "yyh",
       "date_naissance": "2025-12-25"
+    },
+    {
+      "id": "d8f4",
+      "nom": "younes ",
+      "prenom": "ait ouiti",
+      "telephone": "0772640274",
+      "email": "youneswiti@gmail.com",
+      "adresse": "casablanca",
+      "groupe_sanguin": "A-",
+      "allergies": "",
+      "date_naissance": "0006-09-07"
     }
   ],
   "rendezvous": [
     {
-      "id": 1,
-      "patient_id": 1,
+      "id": "1",
+      "patientId": "00df",
       "date": "2025-01-10",
       "heure": "10:30",
       "motif": "Consultation",
-      "statut": "Confirmé"
+      "etat": "Confirmé",
+      "notes": ""
     },
     {
-      "id": 2,
+      "id": "2",
       "patient_id": 2,
       "date": "2025-01-10",
       "heure": "11:30",
@@ -59,126 +71,131 @@
       "motif": "",
       "etat": "Confirmé",
       "notes": ""
+    },
+    {
+      "id": "5267",
+      "patientId": "2",
+      "date": "2025-12-24",
+      "heure": "15:00",
+      "motif": "",
+      "etat": "Confirmé",
+      "notes": ""
     }
   ],
   "consultations": [
     {
-      "id": 1,
-      "patient_id": 1,
-      "rdv_id": 1,
-      "date": "2025-01-10",
-      "motif": "Consultation",
-      "diagnostic": "Grippe",
-      "ordonnance": "Paracetamol 500mg – 3 fois/jour",
-      "tarif": 150,
-      "mode_paiement": "Espèces"
-    },
-    {
-      "id": "53d6",
-      "patientId": "",
-      "date": "",
-      "diagnostic": "",
-      "traitement": "",
-      "tarif": 0,
-      "paiement": "",
-      "mode_paiement": ""
-    },
-    {
       "id": "e5cc",
       "patientId": "00df",
-      "date": "",
+      "date": "2025-12-19",
       "diagnostic": "ds",
       "traitement": "234",
       "tarif": 123,
-      "paiement": "Espèces",
-      "mode_paiement": "Espèces"
+      "paiement": "Espèces"
+    },
+    {
+      "id": "3d5f",
+      "patientId": "2",
+      "date": "2025-12-25",
+      "diagnostic": "dg",
+      "traitement": "",
+      "tarif": 0,
+      "paiement": ""
+    },
+    {
+      "id": "6f45",
+      "patientId": "2",
+      "date": "2025-12-16",
+      "diagnostic": "df dkjgjdf",
+      "traitement": "eew",
+      "tarif": 34345,
+      "paiement": "msd"
     }
   ],
   "groupes_sanguins": [
     {
-      "id": 1,
+      "id": "1",
       "label": "O+"
     },
     {
-      "id": 2,
+      "id": "2",
       "label": "O-"
     },
     {
-      "id": 3,
+      "id": "3",
       "label": "A+"
     },
     {
-      "id": 4,
+      "id": "4",
       "label": "A-"
     },
     {
-      "id": 5,
+      "id": "5",
       "label": "B+"
     },
     {
-      "id": 6,
+      "id": "6",
       "label": "B-"
     },
     {
-      "id": 7,
+      "id": "7",
       "label": "AB+"
     },
     {
-      "id": 8,
+      "id": "8",
       "label": "AB-"
     }
   ],
   "motifs_rdv": [
     {
-      "id": 1,
+      "id": "1",
       "label": "Consultation"
     },
     {
-      "id": 2,
+      "id": "2",
       "label": "Contrôle"
     },
     {
-      "id": 3,
+      "id": "3",
       "label": "Certificat"
     },
     {
-      "id": 4,
+      "id": "4",
       "label": "Vaccination"
     },
     {
-      "id": 5,
+      "id": "5",
       "label": "Urgence"
     }
   ],
   "statuts_rdv": [
     {
-      "id": 1,
+      "id": "1",
       "label": "Confirmé"
     },
     {
-      "id": 2,
+      "id": "2",
       "label": "En attente"
     },
     {
-      "id": 3,
+      "id": "3",
       "label": "Honoré"
     },
     {
-      "id": 4,
+      "id": "4",
       "label": "Annulé"
     }
   ],
   "modes_paiement": [
     {
-      "id": 1,
+      "id": "1",
       "label": "Espèces"
     },
     {
-      "id": 2,
+      "id": "2",
       "label": "Carte bancaire"
     },
     {
-      "id": 3,
+      "id": "3",
       "label": "Chèque"
     }
   ],
