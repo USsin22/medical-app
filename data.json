@@ -4,12 +4,12 @@
       "id": "1",
       "nom": "Amrani",
       "prenom": "Samir",
-      "date_naissance": "1990-05-12",
       "telephone": "0612345678",
-      "adresse": "Casablanca",
       "email": "samir.amrani@gmail.com",
+      "adresse": "Casablanca",
       "groupe_sanguin": "O+",
-      "allergies": "Pollen"
+      "allergies": "Pollen",
+      "date_naissance": "2000-05-12"
     },
     {
       "id": "2",
@@ -24,25 +24,476 @@
     },
     {
       "id": "00df",
-      "nom": "benhadi",
-      "prenom": "yassine",
+      "nom": "Benhadi",
+      "prenom": "Yassine",
       "telephone": "0656620205",
       "email": "",
-      "adresse": "ghfbgcxfgjdgh",
-      "groupe_sanguin": "jh",
-      "allergies": "yyh",
-      "date_naissance": "2025-12-25"
+      "adresse": "Casablanca",
+      "groupe_sanguin": "B+",
+      "allergies": "Gluten",
+      "date_naissance": "1994-12-25"
     },
     {
       "id": "d8f4",
-      "nom": "younes ",
-      "prenom": "ait ouiti",
+      "nom": "Ait Ouiti",
+      "prenom": "Younes",
       "telephone": "0772640274",
       "email": "youneswiti@gmail.com",
-      "adresse": "casablanca",
+      "adresse": "Casablanca",
       "groupe_sanguin": "A-",
       "allergies": "",
-      "date_naissance": "0006-09-07"
+      "date_naissance": "2006-09-07"
+    },
+    {
+      "id": "p5",
+      "nom": "Zahra",
+      "prenom": "Fatima",
+      "telephone": "0688997766",
+      "email": "fatima.z@example.com",
+      "adresse": "Marrakech",
+      "groupe_sanguin": "AB+",
+      "allergies": "Pénicilline",
+      "date_naissance": "1992-03-15"
+    },
+    {
+      "id": "p6",
+      "nom": "Benali",
+      "prenom": "Ahmed",
+      "telephone": "0611223344",
+      "email": "ahmed.benali@example.com",
+      "adresse": "Tanger",
+      "groupe_sanguin": "O-",
+      "allergies": "",
+      "date_naissance": "1978-11-30"
+    },
+    {
+      "id": "p7",
+      "nom": "Tazi",
+      "prenom": "Sofia",
+      "telephone": "0699887766",
+      "email": "",
+      "adresse": "Fès",
+      "groupe_sanguin": "A+",
+      "allergies": "Arachides",
+      "date_naissance": "2015-06-20"
+    },
+    {
+      "id": "gen_p_1007",
+      "nom": "Benjelloun",
+      "prenom": "Hassan",
+      "telephone": "0674028605",
+      "email": "khalid.hamdaoui@example.com",
+      "adresse": "Tetouan",
+      "groupe_sanguin": "O+",
+      "allergies": "Pollen",
+      "date_naissance": "1964-01-28"
+    },
+    {
+      "id": "gen_p_1008",
+      "nom": "Drissi",
+      "prenom": "Leila",
+      "telephone": "0695208832",
+      "email": "bouchra.jebari@example.com",
+      "adresse": "Agadir",
+      "groupe_sanguin": "B+",
+      "allergies": "Aspirine",
+      "date_naissance": "1984-02-27"
+    },
+    {
+      "id": "gen_p_1009",
+      "nom": "Hassani",
+      "prenom": "Mohamed",
+      "telephone": "0685449215",
+      "email": "omar.chaoui@example.com",
+      "adresse": "Rabat",
+      "groupe_sanguin": "A+",
+      "allergies": "Arachides",
+      "date_naissance": "2013-11-09"
+    },
+    {
+      "id": "gen_p_1010",
+      "nom": "Jebari",
+      "prenom": "Bilal",
+      "telephone": "0652043740",
+      "email": "hassan.chaoui@example.com",
+      "adresse": "Tanger",
+      "groupe_sanguin": "A-",
+      "allergies": "Pénicilline",
+      "date_naissance": "1990-12-06"
+    },
+    {
+      "id": "gen_p_1011",
+      "nom": "Jami",
+      "prenom": "Tarik",
+      "telephone": "0619217277",
+      "email": "hanane.bennani@example.com",
+      "adresse": "Marrakech",
+      "groupe_sanguin": "B+",
+      "allergies": "Aucune",
+      "date_naissance": "1978-12-19"
+    },
+    {
+      "id": "gen_p_1012",
+      "nom": "Chaoui",
+      "prenom": "Zakaria",
+      "telephone": "0613377348",
+      "email": "fatima.drissi@example.com",
+      "adresse": "Kenitra",
+      "groupe_sanguin": "A-",
+      "allergies": "Aucune",
+      "date_naissance": "1957-07-08"
+    },
+    {
+      "id": "gen_p_1013",
+      "nom": "Zerrad",
+      "prenom": "Fouad",
+      "telephone": "0640262163",
+      "email": "brahim.bennani@example.com",
+      "adresse": "Casablanca",
+      "groupe_sanguin": "A+",
+      "allergies": "Acariens",
+      "date_naissance": "1989-04-27"
+    },
+    {
+      "id": "gen_p_1014",
+      "nom": "Ghazouani",
+      "prenom": "Hanane",
+      "telephone": "0694395935",
+      "email": "zineb.alaoui@example.com",
+      "adresse": "Rabat",
+      "groupe_sanguin": "A+",
+      "allergies": "Arachides",
+      "date_naissance": "1973-04-11"
+    },
+    {
+      "id": "gen_p_1015",
+      "nom": "Jebari",
+      "prenom": "Rachid",
+      "telephone": "0694633323",
+      "email": "ghita.chaoui@example.com",
+      "adresse": "Casablanca",
+      "groupe_sanguin": "AB-",
+      "allergies": "Aucune",
+      "date_naissance": "2005-07-28"
+    },
+    {
+      "id": "gen_p_1016",
+      "nom": "Berrada",
+      "prenom": "Rachid",
+      "telephone": "0614822950",
+      "email": "khalid.el amrani@example.com",
+      "adresse": "Tetouan",
+      "groupe_sanguin": "B+",
+      "allergies": "Aucune",
+      "date_naissance": "2000-05-07"
+    },
+    {
+      "id": "gen_p_1017",
+      "nom": "Drissi",
+      "prenom": "Noura",
+      "telephone": "0696190861",
+      "email": "chaimae.alaoui@example.com",
+      "adresse": "Tanger",
+      "groupe_sanguin": "AB+",
+      "allergies": "Arachides",
+      "date_naissance": "2010-04-23"
+    },
+    {
+      "id": "gen_p_1018",
+      "nom": "Drissi",
+      "prenom": "Leila",
+      "telephone": "0692146704",
+      "email": "hassan.naciri@example.com",
+      "adresse": "Agadir",
+      "groupe_sanguin": "O+",
+      "allergies": "Aucune",
+      "date_naissance": "1971-06-12"
+    },
+    {
+      "id": "gen_p_1019",
+      "nom": "Kadiri",
+      "prenom": "Amina",
+      "telephone": "0615880628",
+      "email": "sanae.ghazouani@example.com",
+      "adresse": "Oujda",
+      "groupe_sanguin": "A-",
+      "allergies": "Aucune",
+      "date_naissance": "2018-01-16"
+    },
+    {
+      "id": "gen_p_1020",
+      "nom": "Tazi",
+      "prenom": "Zakaria",
+      "telephone": "0692599804",
+      "email": "rachid.chraibi@example.com",
+      "adresse": "Marrakech",
+      "groupe_sanguin": "O-",
+      "allergies": "Pénicilline",
+      "date_naissance": "1994-08-08"
+    },
+    {
+      "id": "gen_p_1021",
+      "nom": "Rami",
+      "prenom": "Mustapha",
+      "telephone": "0681599645",
+      "email": "nadia.el fassi@example.com",
+      "adresse": "Meknès",
+      "groupe_sanguin": "O-",
+      "allergies": "Latex",
+      "date_naissance": "1958-11-03"
+    },
+    {
+      "id": "gen_p_1022",
+      "nom": "Ghazouani",
+      "prenom": "Mustapha",
+      "telephone": "0614756324",
+      "email": "khalid.jebari@example.com",
+      "adresse": "Marrakech",
+      "groupe_sanguin": "O+",
+      "allergies": "Aucune",
+      "date_naissance": "1982-08-22"
+    },
+    {
+      "id": "gen_p_1023",
+      "nom": "Mernissi",
+      "prenom": "Mustapha",
+      "telephone": "0673874881",
+      "email": "othmane.chraibi@example.com",
+      "adresse": "Casablanca",
+      "groupe_sanguin": "B+",
+      "allergies": "Arachides",
+      "date_naissance": "2008-06-22"
+    },
+    {
+      "id": "gen_p_1024",
+      "nom": "Berrada",
+      "prenom": "Loubna",
+      "telephone": "0676820800",
+      "email": "meryem.kadiri@example.com",
+      "adresse": "Kenitra",
+      "groupe_sanguin": "O-",
+      "allergies": "Antibiotiques",
+      "date_naissance": "1991-11-18"
+    },
+    {
+      "id": "gen_p_1025",
+      "nom": "Daoudi",
+      "prenom": "Asma",
+      "telephone": "0682862761",
+      "email": "leila.el fassi@example.com",
+      "adresse": "Rabat",
+      "groupe_sanguin": "AB+",
+      "allergies": "Aspirine",
+      "date_naissance": "1985-01-27"
+    },
+    {
+      "id": "gen_p_1026",
+      "nom": "Alaoui",
+      "prenom": "Hanane",
+      "telephone": "0698028397",
+      "email": "rachid.oukacha@example.com",
+      "adresse": "Agadir",
+      "groupe_sanguin": "O-",
+      "allergies": "Arachides",
+      "date_naissance": "2003-06-19"
+    },
+    {
+      "id": "gen_p_1027",
+      "nom": "Mernissi",
+      "prenom": "Leila",
+      "telephone": "0656577706",
+      "email": "brahim.alaoui@example.com",
+      "adresse": "Agadir",
+      "groupe_sanguin": "A-",
+      "allergies": "Acariens",
+      "date_naissance": "1972-11-25"
+    },
+    {
+      "id": "gen_p_1028",
+      "nom": "Fassi",
+      "prenom": "Salma",
+      "telephone": "0613913497",
+      "email": "tarik.fassi@example.com",
+      "adresse": "Agadir",
+      "groupe_sanguin": "B-",
+      "allergies": "Aspirine",
+      "date_naissance": "1991-03-04"
+    },
+    {
+      "id": "gen_p_1029",
+      "nom": "Benjelloun",
+      "prenom": "Houda",
+      "telephone": "0698393557",
+      "email": "hanane.kadiri@example.com",
+      "adresse": "Tanger",
+      "groupe_sanguin": "B-",
+      "allergies": "Antibiotiques",
+      "date_naissance": "1972-02-08"
+    },
+    {
+      "id": "gen_p_1030",
+      "nom": "Naciri",
+      "prenom": "Sanae",
+      "telephone": "0629919542",
+      "email": "asma.rami@example.com",
+      "adresse": "Agadir",
+      "groupe_sanguin": "AB-",
+      "allergies": "Pollen",
+      "date_naissance": "1950-10-21"
+    },
+    {
+      "id": "gen_p_1031",
+      "nom": "El Fassi",
+      "prenom": "Othmane",
+      "telephone": "0617543670",
+      "email": "ilham.bennani@example.com",
+      "adresse": "Meknès",
+      "groupe_sanguin": "B-",
+      "allergies": "Aspirine",
+      "date_naissance": "1951-08-06"
+    },
+    {
+      "id": "gen_p_1032",
+      "nom": "Bennani",
+      "prenom": "Salma",
+      "telephone": "0662973188",
+      "email": "houda.wahbi@example.com",
+      "adresse": "Tetouan",
+      "groupe_sanguin": "O-",
+      "allergies": "Latex",
+      "date_naissance": "2005-01-15"
+    },
+    {
+      "id": "gen_p_1033",
+      "nom": "Berrada",
+      "prenom": "Yassine",
+      "telephone": "0684504359",
+      "email": "yassine.benjelloun@example.com",
+      "adresse": "Tanger",
+      "groupe_sanguin": "O-",
+      "allergies": "Aucune",
+      "date_naissance": "1992-02-05"
+    },
+    {
+      "id": "gen_p_1034",
+      "nom": "El Amrani",
+      "prenom": "Bilal",
+      "telephone": "0690428810",
+      "email": "khalid.lahlou@example.com",
+      "adresse": "Rabat",
+      "groupe_sanguin": "O-",
+      "allergies": "Latex",
+      "date_naissance": "1983-09-16"
+    },
+    {
+      "id": "gen_p_1035",
+      "nom": "Benjelloun",
+      "prenom": "Karim",
+      "telephone": "0643104353",
+      "email": "rachid.chraibi@example.com",
+      "adresse": "Casablanca",
+      "groupe_sanguin": "B+",
+      "allergies": "Latex",
+      "date_naissance": "1987-09-09"
+    },
+    {
+      "id": "gen_p_1036",
+      "nom": "Idrissi",
+      "prenom": "Brahim",
+      "telephone": "0622601620",
+      "email": "rachid.hassani@example.com",
+      "adresse": "Oujda",
+      "groupe_sanguin": "AB-",
+      "allergies": "Aucune",
+      "date_naissance": "1955-11-03"
+    },
+    {
+      "id": "gen_p_1037",
+      "nom": "Oukacha",
+      "prenom": "Othmane",
+      "telephone": "0674874751",
+      "email": "tarik.tazi@example.com",
+      "adresse": "Tetouan",
+      "groupe_sanguin": "B-",
+      "allergies": "Aucune",
+      "date_naissance": "1977-08-16"
+    },
+    {
+      "id": "gen_p_1038",
+      "nom": "Slaoui",
+      "prenom": "Asma",
+      "telephone": "0627691980",
+      "email": "amina.oukacha@example.com",
+      "adresse": "Rabat",
+      "groupe_sanguin": "AB+",
+      "allergies": "Aspirine",
+      "date_naissance": "1981-12-23"
+    },
+    {
+      "id": "gen_p_1039",
+      "nom": "Tazi",
+      "prenom": "Zineb",
+      "telephone": "0659762168",
+      "email": "rachid.idrissi@example.com",
+      "adresse": "Kenitra",
+      "groupe_sanguin": "A+",
+      "allergies": "Arachides",
+      "date_naissance": "1962-10-21"
+    },
+    {
+      "id": "gen_p_1040",
+      "nom": "Mernissi",
+      "prenom": "Yassine",
+      "telephone": "0610399762",
+      "email": "samira.chaoui@example.com",
+      "adresse": "Agadir",
+      "groupe_sanguin": "B+",
+      "allergies": "Pollen",
+      "date_naissance": "1951-04-25"
+    },
+    {
+      "id": "gen_p_1041",
+      "nom": "Daoudi",
+      "prenom": "Zakaria",
+      "telephone": "0631309403",
+      "email": "ilham.ghazouani@example.com",
+      "adresse": "Tanger",
+      "groupe_sanguin": "B-",
+      "allergies": "Aucune",
+      "date_naissance": "1954-04-10"
+    },
+    {
+      "id": "gen_p_1042",
+      "nom": "Jebari",
+      "prenom": "Ghita",
+      "telephone": "0688805140",
+      "email": "zineb.drissi@example.com",
+      "adresse": "Agadir",
+      "groupe_sanguin": "A-",
+      "allergies": "Aspirine",
+      "date_naissance": "1969-07-14"
+    },
+    {
+      "id": "gen_p_1043",
+      "nom": "Slaoui",
+      "prenom": "Hamza",
+      "telephone": "0616555257",
+      "email": "karim.idrissi@example.com",
+      "adresse": "Rabat",
+      "groupe_sanguin": "B-",
+      "allergies": "Antibiotiques",
+      "date_naissance": "1962-04-02"
+    },
+    {
+      "id": "gen_p_1044",
+      "nom": "Alaoui",
+      "prenom": "Zakaria",
+      "telephone": "0612684040",
+      "email": "ilham.lahlou@example.com",
+      "adresse": "Casablanca",
+      "groupe_sanguin": "A+",
+      "allergies": "Antibiotiques",
+      "date_naissance": "2016-07-22"
     }
   ],
   "rendezvous": [
@@ -53,32 +504,222 @@
       "heure": "10:30",
       "motif": "Consultation",
       "etat": "Confirmé",
-      "notes": ""
-    },
-    {
-      "id": "2",
-      "patient_id": 2,
-      "date": "2025-01-10",
-      "heure": "11:30",
-      "motif": "Contrôle",
-      "statut": "En attente"
+      "notes": "Suivi annuel"
     },
     {
       "id": "9e53",
       "patientId": "1",
       "date": "2025-12-16",
       "heure": "12:00",
-      "motif": "",
+      "motif": "Urgence",
       "etat": "Confirmé",
-      "notes": ""
+      "notes": "Douleur abdominale"
     },
     {
       "id": "5267",
       "patientId": "2",
       "date": "2025-12-24",
       "heure": "15:00",
-      "motif": "",
+      "motif": "Vaccination",
       "etat": "Confirmé",
+      "notes": "Rappel"
+    },
+    {
+      "id": "9577",
+      "patientId": "2",
+      "date": "2025-12-26",
+      "heure": "04:20",
+      "motif": "Contrôle",
+      "etat": "Confirmé",
+      "notes": ""
+    },
+    {
+      "id": "r5",
+      "patientId": "p5",
+      "date": "2025-01-15",
+      "heure": "09:00",
+      "motif": "Consultation",
+      "etat": "Confirmé",
+      "notes": "Première visite"
+    },
+    {
+      "id": "r6",
+      "patientId": "p6",
+      "date": "2025-01-18",
+      "heure": "11:30",
+      "motif": "Contrôle",
+      "etat": "En attente",
+      "notes": "À confirmer"
+    },
+    {
+      "id": "r7",
+      "patientId": "p7",
+      "date": "2025-01-20",
+      "heure": "14:00",
+      "motif": "Vaccination",
+      "etat": "Confirmé",
+      "notes": "Carnet de santé"
+    },
+    {
+      "id": "gen_r_1000",
+      "patientId": "gen_p_1025",
+      "date": "2026-02-22",
+      "heure": "11:45",
+      "motif": "Urgence",
+      "etat": "Confirmé",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1001",
+      "patientId": "gen_p_1044",
+      "date": "2026-03-17",
+      "heure": "15:45",
+      "motif": "Certificat",
+      "etat": "Confirmé",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1002",
+      "patientId": "gen_p_1014",
+      "date": "2026-02-20",
+      "heure": "14:45",
+      "motif": "Consultation",
+      "etat": "Annulé",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1003",
+      "patientId": "gen_p_1023",
+      "date": "2026-02-17",
+      "heure": "11:00",
+      "motif": "Urgence",
+      "etat": "Annulé",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1004",
+      "patientId": "gen_p_1024",
+      "date": "2025-11-12",
+      "heure": "15:15",
+      "motif": "Contrôle",
+      "etat": "En attente",
+      "notes": "Notes auto-générées"
+    },
+    {
+      "id": "gen_r_1005",
+      "patientId": "gen_p_1010",
+      "date": "2025-12-23",
+      "heure": "16:30",
+      "motif": "Urgence",
+      "etat": "Honoré",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1006",
+      "patientId": "gen_p_1037",
+      "date": "2026-02-14",
+      "heure": "14:15",
+      "motif": "Vaccination",
+      "etat": "Annulé",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1007",
+      "patientId": "gen_p_1021",
+      "date": "2025-12-28",
+      "heure": "11:30",
+      "motif": "Urgence",
+      "etat": "Confirmé",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1008",
+      "patientId": "gen_p_1024",
+      "date": "2025-12-03",
+      "heure": "17:45",
+      "motif": "Urgence",
+      "etat": "En attente",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1009",
+      "patientId": "p6",
+      "date": "2025-12-10",
+      "heure": "11:30",
+      "motif": "Bilan",
+      "etat": "Annulé",
+      "notes": "Notes auto-générées"
+    },
+    {
+      "id": "gen_r_1010",
+      "patientId": "2",
+      "date": "2025-12-25",
+      "heure": "11:15",
+      "motif": "Consultation",
+      "etat": "En attente",
+      "notes": "Notes auto-générées"
+    },
+    {
+      "id": "gen_r_1011",
+      "patientId": "gen_p_1022",
+      "date": "2025-12-27",
+      "heure": "12:45",
+      "motif": "Contrôle",
+      "etat": "Annulé",
+      "notes": "Notes auto-générées"
+    },
+    {
+      "id": "gen_r_1012",
+      "patientId": "gen_p_1014",
+      "date": "2025-11-06",
+      "heure": "10:15",
+      "motif": "Vaccination",
+      "etat": "Annulé",
+      "notes": "Notes auto-générées"
+    },
+    {
+      "id": "gen_r_1013",
+      "patientId": "gen_p_1019",
+      "date": "2026-03-21",
+      "heure": "14:45",
+      "motif": "Bilan",
+      "etat": "En attente",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1014",
+      "patientId": "gen_p_1038",
+      "date": "2026-02-01",
+      "heure": "16:30",
+      "motif": "Contrôle",
+      "etat": "Confirmé",
+      "notes": ""
+    },
+    {
+      "id": "gen_r_1015",
+      "patientId": "gen_p_1010",
+      "date": "2026-01-26",
+      "heure": "17:00",
+      "motif": "Contrôle",
+      "etat": "Honoré",
+      "notes": "Notes auto-générées"
+    },
+    {
+      "id": "gen_r_1016",
+      "patientId": "gen_p_1042",
+      "date": "2026-03-30",
+      "heure": "16:15",
+      "motif": "Bilan",
+      "etat": "En attente",
+      "notes": "Notes auto-générées"
+    },
+    {
+      "id": "gen_r_1017",
+      "patientId": "p7",
+      "date": "2026-03-11",
+      "heure": "12:00",
+      "motif": "Vaccination",
+      "etat": "Annulé",
       "notes": ""
     }
   ],
@@ -87,28 +728,316 @@
       "id": "e5cc",
       "patientId": "00df",
       "date": "2025-12-19",
-      "diagnostic": "ds",
-      "traitement": "234",
-      "tarif": 123,
+      "diagnostic": "Grippe saisonnière",
+      "traitement": "Repos, Paracétamol",
+      "tarif": 250,
       "paiement": "Espèces"
     },
     {
       "id": "3d5f",
       "patientId": "2",
       "date": "2025-12-25",
-      "diagnostic": "dg",
-      "traitement": "",
-      "tarif": 0,
-      "paiement": ""
+      "diagnostic": "Hypertension légère",
+      "traitement": "Suivi tension, Régime sans sel",
+      "tarif": 300,
+      "paiement": "Non Payé"
     },
     {
       "id": "6f45",
       "patientId": "2",
       "date": "2025-12-16",
-      "diagnostic": "df dkjgjdf",
-      "traitement": "eew",
-      "tarif": 34345,
-      "paiement": "msd"
+      "diagnostic": "Migraine ophtalmique",
+      "traitement": "Triptans, Repos obscurité",
+      "tarif": 400,
+      "paiement": "Carte bancaire"
+    },
+    {
+      "id": "c4",
+      "patientId": "1",
+      "date": "2025-11-10",
+      "diagnostic": "Angine bactérienne",
+      "traitement": "Antibiotiques 7 jours",
+      "tarif": 300,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "c5",
+      "patientId": "p5",
+      "date": "2025-12-20",
+      "diagnostic": "Bilan général",
+      "traitement": "Aucun",
+      "tarif": 500,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "c6",
+      "patientId": "p7",
+      "date": "2025-12-22",
+      "diagnostic": "Varicelle",
+      "traitement": "Lotion asséchante, Antihistaminique",
+      "tarif": 350,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "gen_c_1000",
+      "patientId": "gen_p_1039",
+      "date": "2025-11-13",
+      "diagnostic": "Anxiété",
+      "traitement": "Anxiolytiques",
+      "tarif": 240,
+      "paiement": "Non Payé"
+    },
+    {
+      "id": "gen_c_1001",
+      "patientId": "gen_p_1015",
+      "date": "2025-11-02",
+      "diagnostic": "Douleur dorsale",
+      "traitement": "Kiné",
+      "tarif": 253,
+      "paiement": "Carte bancaire"
+    },
+    {
+      "id": "gen_c_1002",
+      "patientId": "gen_p_1025",
+      "date": "2025-10-09",
+      "diagnostic": "Covid-19",
+      "traitement": "Vitamines",
+      "tarif": 544,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1003",
+      "patientId": "gen_p_1008",
+      "date": "2025-09-02",
+      "diagnostic": "Bronchite",
+      "traitement": "Sirop, Repos",
+      "tarif": 267,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1004",
+      "patientId": "gen_p_1044",
+      "date": "2025-12-16",
+      "diagnostic": "Douleur dorsale",
+      "traitement": "Kiné",
+      "tarif": 222,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1005",
+      "patientId": "2",
+      "date": "2025-09-08",
+      "diagnostic": "Angine",
+      "traitement": "Antibiotiques",
+      "tarif": 298,
+      "paiement": "Carte bancaire"
+    },
+    {
+      "id": "gen_c_1006",
+      "patientId": "gen_p_1009",
+      "date": "2025-09-30",
+      "diagnostic": "Migraine",
+      "traitement": "Antalgiques, Repos",
+      "tarif": 321,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1007",
+      "patientId": "00df",
+      "date": "2025-12-24",
+      "diagnostic": "Entorse",
+      "traitement": "Attelle, Repos",
+      "tarif": 201,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1008",
+      "patientId": "gen_p_1038",
+      "date": "2025-12-04",
+      "diagnostic": "Hypertension",
+      "traitement": "Régime, Médicaments",
+      "tarif": 241,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "gen_c_1009",
+      "patientId": "gen_p_1035",
+      "date": "2025-12-23",
+      "diagnostic": "Migraine",
+      "traitement": "Antalgiques, Repos",
+      "tarif": 522,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1010",
+      "patientId": "00df",
+      "date": "2025-12-07",
+      "diagnostic": "Allergie",
+      "traitement": "Antihistaminiques",
+      "tarif": 453,
+      "paiement": "Carte bancaire"
+    },
+    {
+      "id": "gen_c_1011",
+      "patientId": "gen_p_1031",
+      "date": "2025-09-28",
+      "diagnostic": "Bronchite",
+      "traitement": "Sirop, Repos",
+      "tarif": 367,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "gen_c_1012",
+      "patientId": "gen_p_1009",
+      "date": "2025-09-19",
+      "diagnostic": "Otite",
+      "traitement": "Gouttes auriculaires",
+      "tarif": 376,
+      "paiement": "Non Payé"
+    },
+    {
+      "id": "gen_c_1013",
+      "patientId": "1",
+      "date": "2025-10-19",
+      "diagnostic": "Anxiété",
+      "traitement": "Anxiolytiques",
+      "tarif": 468,
+      "paiement": "Non Payé"
+    },
+    {
+      "id": "gen_c_1014",
+      "patientId": "gen_p_1012",
+      "date": "2025-10-08",
+      "diagnostic": "Rhinopharyngite",
+      "traitement": "Doliprane",
+      "tarif": 468,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "gen_c_1015",
+      "patientId": "gen_p_1027",
+      "date": "2025-09-23",
+      "diagnostic": "Angine",
+      "traitement": "Antibiotiques",
+      "tarif": 502,
+      "paiement": "Non Payé"
+    },
+    {
+      "id": "gen_c_1016",
+      "patientId": "00df",
+      "date": "2025-09-28",
+      "diagnostic": "Anxiété",
+      "traitement": "Anxiolytiques",
+      "tarif": 373,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1017",
+      "patientId": "gen_p_1027",
+      "date": "2025-10-10",
+      "diagnostic": "Otite",
+      "traitement": "Gouttes auriculaires",
+      "tarif": 260,
+      "paiement": "Carte bancaire"
+    },
+    {
+      "id": "gen_c_1018",
+      "patientId": "00df",
+      "date": "2025-11-14",
+      "diagnostic": "Laryngite",
+      "traitement": "Anti-inflammatoires",
+      "tarif": 399,
+      "paiement": "Non Payé"
+    },
+    {
+      "id": "gen_c_1019",
+      "patientId": "gen_p_1029",
+      "date": "2025-11-10",
+      "diagnostic": "Hypertension",
+      "traitement": "Régime, Médicaments",
+      "tarif": 300,
+      "paiement": "Non Payé"
+    },
+    {
+      "id": "gen_c_1020",
+      "patientId": "gen_p_1023",
+      "date": "2025-09-28",
+      "diagnostic": "Entorse",
+      "traitement": "Attelle, Repos",
+      "tarif": 315,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "gen_c_1021",
+      "patientId": "gen_p_1027",
+      "date": "2025-12-11",
+      "diagnostic": "Entorse",
+      "traitement": "Attelle, Repos",
+      "tarif": 276,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "gen_c_1022",
+      "patientId": "gen_p_1025",
+      "date": "2025-11-20",
+      "diagnostic": "Entorse",
+      "traitement": "Attelle, Repos",
+      "tarif": 429,
+      "paiement": "Non Payé"
+    },
+    {
+      "id": "gen_c_1023",
+      "patientId": "gen_p_1014",
+      "date": "2025-09-02",
+      "diagnostic": "Entorse",
+      "traitement": "Attelle, Repos",
+      "tarif": 443,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1024",
+      "patientId": "p5",
+      "date": "2025-12-20",
+      "diagnostic": "Gastrite",
+      "traitement": "Pansements gastriques",
+      "tarif": 483,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1025",
+      "patientId": "gen_p_1017",
+      "date": "2025-09-03",
+      "diagnostic": "Diabète",
+      "traitement": "Insuline, Suivi",
+      "tarif": 457,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "gen_c_1026",
+      "patientId": "gen_p_1023",
+      "date": "2025-10-30",
+      "diagnostic": "Allergie",
+      "traitement": "Antihistaminiques",
+      "tarif": 364,
+      "paiement": "Espèces"
+    },
+    {
+      "id": "gen_c_1027",
+      "patientId": "gen_p_1032",
+      "date": "2025-12-09",
+      "diagnostic": "Rhinopharyngite",
+      "traitement": "Doliprane",
+      "tarif": 475,
+      "paiement": "Chèque"
+    },
+    {
+      "id": "gen_c_1028",
+      "patientId": "gen_p_1011",
+      "date": "2025-11-10",
+      "diagnostic": "Otite",
+      "traitement": "Gouttes auriculaires",
+      "tarif": 332,
+      "paiement": "Non Payé"
     }
   ],
   "groupes_sanguins": [
@@ -200,10 +1129,10 @@
     }
   ],
   "statistiques": {
-    "ca_jour": 200,
-    "ca_mois": 200,
-    "nombre_patients": 1,
-    "taux_presence": 100,
-    "patient_frequent": 1
+    "ca_jour": 850,
+    "ca_mois": 2500,
+    "nombre_patients": 45,
+    "taux_presence": 95,
+    "patient_frequent": 2
   }
 }

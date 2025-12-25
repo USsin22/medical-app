@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-const Modal = ({ isOpen, title, children, onClose, onConfirm, confirmText = 'Save' }) => {
+const Modal = ({ isOpen, title, children, onClose, onConfirm, confirmText = 'Save', isConfirmDisabled = false }) => {
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === 'Escape') onClose?.()
@@ -23,7 +23,13 @@ const Modal = ({ isOpen, title, children, onClose, onConfirm, confirmText = 'Sav
         </div>
         <div className="p-4 border-t flex justify-end gap-3">
           <button className="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" onClick={onClose}>Cancel</button>
-          <button className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700" onClick={onConfirm}>{confirmText}</button>
+          <button 
+            className={`px-4 py-2 rounded text-white ${isConfirmDisabled ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`} 
+            onClick={onConfirm} 
+            disabled={isConfirmDisabled}
+          >
+            {confirmText}
+          </button>
         </div>
       </div>
     </div>

@@ -17,6 +17,7 @@ import {
 // npm install lucide-react
 
 import Loader from '../components/Loaders';
+import Animation from '../components/Animation'
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -77,7 +78,9 @@ function Header() {
 
 function HeroSection() {
   return (
+
     <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -138,18 +141,19 @@ function HeroSection() {
           >
             <div className="relative">
               {/* Main Dashboard Card */}
-              {/* <motion.div
+              <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative z-10 rounded-3xl bg-white/80 backdrop-blur-xl p-6 shadow-2xl border border-white/50"
+                className="relative z-10 rounded-xl   "
                 style={{ transform: 'perspective(1000px) rotateY(-5deg) rotateX(5deg)' }}
               >
-                <img
+                {/* <img
                   src="https://images.unsplash.com/photo-1747224317356-6dd1a4a078fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwZGFzaGJvYXJkJTIwbW9kZXJufGVufDF8fHx8MTc2NjYxMzM3MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   alt="Medical Dashboard"
                   className="w-[500px] h- h-auto rounded-2xl"
-                />
-              </motion.div> */}
+                /> */}
+              <Animation  /> 
+              </motion.div>
               
               {/* Floating Calendar Card */}
               <motion.div

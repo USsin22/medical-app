@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 import { addRendezvous, updateRendezvous, fetchRendezvous } from '../store/rdvSlice'
 import { fetchPatients } from '../store/patientSlice'
+import { fetchMotifsRdv } from '../store/optionsSlice'
+import { fetchStatutsRdv } from '../store/optionsSlice'
 import Layout from '../components/Layout'
 import Toast from '../components/Toast'
 
@@ -14,6 +16,8 @@ const RDVForm = () => {
 
   const { appointments } = useSelector(state => state.rdv)
   const { patients } = useSelector(state => state.patient)
+  const { motifsRdv } = useSelector(state => state.options)
+  const { statutsRdv } = useSelector(state => state.options)
 
   const [form, setForm] = useState({
     patientId: '',
@@ -30,7 +34,9 @@ const RDVForm = () => {
   useEffect(() => {
     dispatch(fetchPatients())
     dispatch(fetchRendezvous())
-  }, [dispatch])
+    dispatch(fetchMotifsRdv())
+    dispatch(fetchStatutsRdv())
+    }, [dispatch])
 
   useEffect(() => {
     if (isEditing && appointments.length > 0) {
@@ -219,13 +225,18 @@ const RDVForm = () => {
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Reason for Visit
               </label>
-              <input
-                type="text"
+              <select
                 value={form.motif}
-                onChange={(e) => setForm({ ...form, motif: e.target.value })}
-                placeholder="e.g., General checkup, Consultation..."
+                  onChange={(e) => setForm({ ...form, motif: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+              >
+                <option value="">Choose a motif...</option>
+                {motifsRdv.map((m, i) => (
+                  <option key={i} value={typeof m === 'string' ? m : m.label || m.name}>
+                    {typeof m === 'string' ? m : m.label || m.name}
+                  </option>
+                ))}
+              </select>
             </div>
 
             {/* Status */}
@@ -238,12 +249,15 @@ const RDVForm = () => {
                 onChange={(e) => setForm({ ...form, etat: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                <option value="En attente">En attente</option>
-                <option value="Confirmé">Confirmé</option>
-                <option value="Annulé">Annulé</option>
+                <option value="">Select a status...</option>
+                {statutsRdv.map((s, i) => (
+                <option key={i} value={typeof s === 'string' ? s : s.label}>
+                    {typeof s === 'string' ? s : s.label}
+                  </option>
+                ))} 
               </select>
             </div>
-
+            
             {/* Notes */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">

@@ -2,46 +2,134 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Loader = () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isLoading) return null;
+
   return (
     <StyledWrapper>
-      <div className="loading">
-        <svg width="64px" height="48px">
-          <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back" />
-          <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front" />
-        </svg>
+      <div className="card">
+        <div className="loader">
+          <p>loading</p>
+          <div className="words">
+            <span className="word">yassine</span>
+            <span className="word">yassine</span>
+            <span className="word">and</span>
+            <span className="word">younes</span>
+            <span className="word">presents</span>
+            <span className="word">MedClinic</span>
+          </div>
+        </div>
       </div>
     </StyledWrapper>
   );
 }
 
 const StyledWrapper = styled.div`
-  .loading svg polyline {
-    fill: none;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  .card {
+    /* color used to softly clip top and bottom of the .words container */
+    --bg-color: #111;
+    background-color: var(--bg-color);
+    padding: 1rem 2rem;
+    border-radius: 1.25rem;
+  }
+  .loader {
+    color: rgb(124, 124, 124);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 40px;
+    padding: 10px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 8px;
   }
 
-  .loading svg polyline#back {
-    fill: none;
-    stroke: #ff4d5033;
+  .words {
+    overflow: hidden;
+    position: relative;
+  }
+  .words::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      var(--bg-color) 10%,
+      transparent 30%,
+      transparent 70%,
+      var(--bg-color) 90%
+    );
+    z-index: 20;
   }
 
-  .loading svg polyline#front {
-    fill: none;
-    stroke: #ff4d4f;
-    stroke-dasharray: 48, 144;
-    stroke-dashoffset: 192;
-    animation: dash_682 1.4s linear infinite;
+  .word {
+    display: block;
+    height: 100%;
+    padding-left: 6px;
+    color: #956afa;
+    animation: spin_4991 4s infinite;
   }
 
-  @keyframes dash_682 {
-    72.5% {
-      opacity: 0;
+  @keyframes spin_4991 {
+    10% {
+      -webkit-transform: translateY(-102%);
+      transform: translateY(-102%);
     }
 
-    to {
-      stroke-dashoffset: 0;
+    25% {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+
+    35% {
+      -webkit-transform: translateY(-202%);
+      transform: translateY(-202%);
+    }
+
+    50% {
+      -webkit-transform: translateY(-200%);
+      transform: translateY(-200%);
+    }
+
+    60% {
+      -webkit-transform: translateY(-302%);
+      transform: translateY(-302%);
+    }
+
+    75% {
+      -webkit-transform: translateY(-300%);
+      transform: translateY(-300%);
+    }
+
+    85% {
+      -webkit-transform: translateY(-402%);
+      transform: translateY(-402%);
+    }
+
+    100% {
+      -webkit-transform: translateY(-400%);
+      transform: translateY(-400%);
     }
   }`;
 
